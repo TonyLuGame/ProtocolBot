@@ -1,4 +1,4 @@
-# Protocol_bot (Experimental Protocol)
+# ProtocolBot (Experimental Protocol)
 ## General Purpose
 This module is designed to save the effort of constructing experimental protocol for running bio-related experiments. In general, it consists of code generation portion and protocol building portion, in which the user can choose their desired features based on the input files.
 
@@ -7,11 +7,11 @@ This library requires the python version ">= 3.9". Please follow the instruction
 
 To get started, you should first clone the repository to your local computer:
 ```bash
-git clone https://github.com/TonyLuGame/Protocol_bot.git
+git clone https://github.com/TonyLuGame/ProtocolBot.git
 ```
 Then, you need to get into the repository:
 ```bash
-cd Protocol_bot/
+cd ProtocolBot/
 ```
 Later on, install the package on your local computer:
 ```bash
@@ -23,13 +23,12 @@ With this installs, you will be able to import Protocol_bot in your file!!!
 ## Protocol_bot User Guide
 The Protocol_bot package follows the follwing structure:
 ```bash
-Protocol_bot/
+ProtocolBot/
 ├── data/
 │   └── Stock_Repository/      # Your Stock Solution Repository File
+│   └── Protocol_Output/       # Your output protocol storage
 ├── src/
 │   └── protocol_bot/          # Core library source code
-├── Code_Generator_Test_Output/ # Default place for generated python runners
-├── Protocol_Test_File/        # Default place for generated protocols
 ├── install.sh                 # Help file for package download
 ├── pyproject.toml             # Required Package List File
 └── experiments/               # Default place for storing input files
@@ -52,5 +51,5 @@ Overview of Library Function in Protocol_bot:
 - registry.py: contain functions for updating the central registry
 
 ```bash
-For more details on protocol_bot, please check the input templates!!!
+For more details on protocolBot, please check the input templates!!!
 ```
