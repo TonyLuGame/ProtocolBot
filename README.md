@@ -32,12 +32,12 @@ ProtocolBot/
 ├── install.sh                 # Help file for package download
 ├── pyproject.toml             # Required Package List File
 └── experiments/               # Default place for storing input files
+└── CITATION.cff               # Citation format of this repository
 ```
 Guide for Quick Start:
 - Store your stock repository file in the data/Stock_Repository/ folder
-- Create a copy of the input template and move it to experiments/ folder (template for protocol or for code generation)
+- Create a copy of the input template and move it to experiments/ folder
 - Fill out the template file following its instruction and run it
-- (optional) If you choose template for code generation, go to Code_Generator_Test_Output/ folder to check the runner_output and run to generate the protocol
 
 Overview of Library Function in Protocol_bot:
 - generate.py: generate input code for volume calculation
@@ -51,5 +51,5 @@ Overview of Library Function in Protocol_bot:
 - registry.py: contain functions for updating the central registry
 
 ```bash
-For more details on protocolBot, please check the input templates!!!
+For more details on protocol_bot, please check the input templates!!!
 ```
