@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Lu"
+  given-names: "Tony"
+- family-names: "Yancey"
+  given-names: "Colin"
+title: "Protocol Bot: An Automated Protocol Generation System for Synthetic Biology"
+version: 2.0.4
+date-released: 2026-03-02
+url: "https://github.com/TonyLuGame/Protocol_bot"
+keywords:
+  - "synthetic biology"
+  - "automation"
+  - "protocol generation"
+license: "MIT"
