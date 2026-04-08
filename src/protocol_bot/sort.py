@@ -20,18 +20,21 @@ class OrderSorting:
         # Topologically sort bulks and non-bulks separately
         bulk_order_pre = self.topSort(bulk_species)
         bulk_order = []
+        
 
         # Ensure the Pre-bulk is isolated properly if it shares a layer
         for name_list in bulk_order_pre:
-            if set(prebulk_name).issubset(name_list):
+            if prebulk_name and set(prebulk_name).issubset(name_list):
                 bulk_order.append(prebulk_name)
                 rest = [n for n in name_list if n not in prebulk_name]
                 if rest:
                     bulk_order.append(rest)
             else:
                 bulk_order.append(name_list)
-        #print(bulk_order[-1])
-        prebulk_name = bulk_order[-1] # Dual check to ensure the pre-bulk is returned properly
+        
+        if prebulk_name:
+            prebulk_name = bulk_order[-1] # Dual check to ensure the pre-bulk is returned properly
+
         nonbulk_order = self.topSort(nonbulk_species)
         combined_order = bulk_order + nonbulk_order
         return combined_order, prebulk_name, bulk_order, nonbulk_order
