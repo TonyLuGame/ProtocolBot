@@ -1,11 +1,26 @@
 # src/protocol_bot/__init__.py
 # Import the modules (the files)
-from . import volume
-from . import generate
-from . import export
-from . import registry
-from . import repository
-from . import semantic
-from . import structure
-from . import sort
+from .volume import CompositeProtocol
+from .generate import CodeWriter, UserConfig, InputStorage
+from .export import FileGeneration
+from .registry import TrackRegistry
+from .repository import PathConfig, KeyValueRepository, stock_repo_load
+from .semantic import similarityFunction
+from .structure import StructureProtocol
+from .sort import OrderSorting
 from . import search
+
+__all__ = [
+    "CompositeProtocol",
+    "CodeWriter",
+    "UserConfig",
+    "InputStorage",
+    "FileGeneration",
+    "TrackRegistry",
+    "PathConfig",
+    "KeyValueRepository",
+    "stock_repo_load",
+    "OrderSorting",
+    "similarityFunction",
+    "StructureProtocol"
+]

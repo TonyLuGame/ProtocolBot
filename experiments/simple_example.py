@@ -1,14 +1,14 @@
 from pathlib import Path
-from protocol_bot import volume as PG
-from protocol_bot import export as PB
-from protocol_bot import repository as RP
+from protocol_bot import CompositeProtocol
+from protocol_bot import FileGeneration
+from protocol_bot import KeyValueRepository, PathConfig, stock_repo_load
 
 # 1. SETUP
 RUNNER_SCRIPT = Path(__file__).resolve()
 PROJECT_ROOT = RUNNER_SCRIPT.parent.parent
 DATA_DIR = PROJECT_ROOT / 'data' / 'Stock_Repository'
 
-path_config = RP.PathConfig(
+path_config = PathConfig(
     stock_repo={
         DATA_DIR / 'Lab_Inventory.xlsx': {'val_col': 2, 'unit_col': 2},
     },
@@ -16,10 +16,10 @@ path_config = RP.PathConfig(
     central_registry=DATA_DIR / 'Lab_Record_History.xlsx',
 )
 
-sRepo = RP.KeyValueRepository("PCR_Stocks")
-RP.stock_repo_load(path_config.stock_repo, sRepo, key_idx=0)
+sRepo = KeyValueRepository("PCR_Stocks")
+stock_repo_load(path_config.stock_repo, sRepo, key_idx=0)
 repo = sRepo.Repository.copy()
-protocol = PG.CompositeProtocol(stockRepo=sRepo.Repository)
+protocol = CompositeProtocol(stockRepo=sRepo.Repository)
 
 # 2. DEFINE THE MASTER MIX
 # Note: Use the EXACT names from your Lab_Inventory.xlsx to avoid [INFO] replacements
@@ -54,7 +54,7 @@ for i, sample_name in enumerate(samples):
 
 # 4. EXPORT
 result = protocol.compileCompositeProtocol(path_config, proofread=True)
-file = PB.FileGeneration()
+file = FileGeneration()
 file.composite_file(result, repo, path_config, author="Lab User", title="Standard PCR Setup")
 
 print(f"Protocol generated successfully at: {path_config.output_file}")
